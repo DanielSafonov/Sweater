@@ -1,5 +1,6 @@
 package com.DanielSafonov.Sweater;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,10 +30,12 @@ public class GreetingController {
 
     @GetMapping //Обработка GET запросов на корневом адресе
     public String main(Map<String, Object> model){
+        //Принимаем на вход только модель
+
         Iterable<Message> messages = messageRepo.findAll(); //Получение всех данные из таблицы
         model.put("messages", messages); //Передача данных в модель
 
-        return "main";
+        return "main"; //Возвращает имя View (веб-страницы)
     }
 
     @PostMapping //Обработка POST запроса на корневом адресе
@@ -45,6 +48,25 @@ public class GreetingController {
         Iterable<Message> messages = messageRepo.findAll(); //Получение всех данные из таблицы
         model.put("messages", messages); //Передача данных в модель
 
-        return "main";
+        return "main"; //Возвращает имя View (веб-страницы)
+    }
+
+    @PostMapping("/filter") //Обработка POST запроса на /filter
+    public String filter(@RequestParam String filter, Map<String, Object> model){
+        //Принимает на вход ключевое слово для фильтрации и модель
+
+        Iterable<Message> messages;
+
+        if(filter == null || filter.isEmpty()){
+            //Фильтр не задан - вывести все
+            messages = messageRepo.findAll(); //Получение всех данные из таблицы
+        } else{
+            //Фильтра задан - поиск по тегу
+            messages = messageRepo.findAllByTag(filter); //Получить все данные из таблицы по фильтру
+        }
+
+        model.put("messages", messages); //Передача данных в модель
+
+        return "main"; //Возвращает имя View (веб-страницы)
     }
 }
