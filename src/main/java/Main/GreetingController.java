@@ -1,7 +1,6 @@
 package Main;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -20,4 +19,10 @@ public class GreetingController {
 
     }
 
+    @GetMapping //Обработка GET запрсов на корневой ресурс
+    public String main(Map<String, Object> model){
+        //Не принимает никаких параметров из запроса
+        model.put("output", "some..");
+        return "main"; //Возвращает имя View (веб-страницы)
+    }
 }
