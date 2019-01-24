@@ -1,13 +1,16 @@
-<!-- Thymeleaf шаблон для реализации View -->
+<!-- Mustache шаблон для реализации View -->
 
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
     <title>Greeting!</title>
     <meta charset="UTF-8" content="text/html" http-equiv="Content-Type"/>
 </head>
 <body>
     <!-- Выводит строку с входным параметром name -->
-    <p th:text="'Hello, ' + ${name} + '!'" />
+    <div>
+        Hello, {{name}}!
+        Now its mustache template!
+    </div>
 </body>
 </html>
