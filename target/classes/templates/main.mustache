@@ -1,4 +1,4 @@
-<!-- Main -->
+<!-- com.DanielSafonov.main -->
 <!-- Mustache шаблон для реализации View -->
 
 <!DOCTYPE html>
@@ -8,10 +8,29 @@
     <meta charset="UTF-8" content="text/html" http-equiv="Content-Type"/>
 </head>
 <body>
-    <!-- Выводит строку с входным параметром name -->
+    <h1>Home page.</h1>
+
     <div>
-        Home page. Output: {{output}} <br/>
-        <a href="/greeting?name=Daniel">Say hello</a>
+        <h2>Добавить сообщение</h2>
+        <form method="post">
+            <input type="text" name="text" placeholder="Сообщение">
+            <input type="text" name="tag" placeholder="Тэг">
+            <button type="submit">Добавить</button>
+        </form>
+    </div>
+
+    <hr/>
+
+    <div>
+        <h2>Список сообщений:</h2>
+        <!-- Список mustache -->
+        {{#messages}}
+            <div>
+                <b>#{{id}}</b>
+                {{text}}
+                <b>{{tag}}</b>
+            </div>
+        {{/messages}}
     </div>
 </body>
 </html>
