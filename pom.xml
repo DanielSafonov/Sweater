@@ -28,17 +28,24 @@
             <optional>true</optional>
         </dependency>
 
+        <!-- Spring JPA -->
+        <dependency>
+            <groupId>springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <!-- Spring Security -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+
         <!-- Mustache -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-mustache</artifactId>
         </dependency>
 
-        <!-- Spring JPA -->
-        <dependency>
-            <groupId>springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
 
         <!-- MySQL Connector -->
         <dependency>

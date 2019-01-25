@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login page</title>
+        <meta charset="UTF-8" content="text/html" http-equiv="Content-Type"/>
+    </head>
+    <body>
+    <div>
+        <h2>Auth</h2>
+        <form action="/login" method="post">
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+            <input type="text" name="username" placeholder="Login">
+            <input type="password" name="password" placeholder="Password">
+            <button type="submit">SignIn</button>
+        </form>
+    </div>
+    </body>
+</html>

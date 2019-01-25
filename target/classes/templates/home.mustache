@@ -1,0 +1,48 @@
+<!-- com.DanielSafonov.main -->
+<!-- Mustache шаблон для реализации View -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <meta charset="UTF-8" content="text/html" http-equiv="Content-Type"/>
+</head>
+<body>
+    <h1>Sweater.</h1>
+
+    <form action="/logout" method="post">
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+        <input type="submit" value="SignOut">
+    </form>
+
+    <div>
+        <h2>Add message</h2>
+        <form method="post">
+            <input type="text" name="text" placeholder="Message">
+            <input type="text" name="tag" placeholder="Tag">
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+            <button type="submit">Add</button>
+        </form>
+    </div>
+
+    <hr/>
+
+    <div>
+        <h2>Messages list:</h2>
+        <form method="post" action="filter">
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+            <input type="text" name="filter" placeholder="Filter by tag">
+            <button type="submit">Search</button>
+        </form>
+
+        <!-- Список mustache -->
+        {{#messages}}
+            <div>
+                <b>#{{id}}</b>
+                {{text}}
+                <b>{{tag}}</b>
+            </div>
+        {{/messages}}
+    </div>
+</body>
+</html>
