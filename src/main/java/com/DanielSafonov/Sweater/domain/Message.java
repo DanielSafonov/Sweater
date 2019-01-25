@@ -1,16 +1,15 @@
 package com.DanielSafonov.Sweater.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
+//Хранит сообщения пользователей
 @Entity  //Класс-сущность базы данных (Может хранить строку из таблицы)
+@Table(name = "msgs")
 public class Message {
     //Поля класса
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id; //Первичный ключ таблицы генерируется автоматически
+    @GeneratedValue(strategy = GenerationType.AUTO) //Автоматическая генерация ID
+    private Long id; //Первичный ключ таблицы генерируется автоматически
 
     private String text;
     private String tag;
@@ -25,7 +24,7 @@ public class Message {
     }
 
     //Сеттеры
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -39,7 +38,7 @@ public class Message {
 
 
     //Геттеры
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 

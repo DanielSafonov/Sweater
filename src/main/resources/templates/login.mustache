@@ -6,13 +6,14 @@
     </head>
     <body>
     <div>
-        <h2>Auth</h2>
+        <h2>Login page</h2>
         <form action="/login" method="post">
             <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
             <input type="text" name="username" placeholder="Login">
-            <input type="password" name="password" placeholder="Password">
+            <input type="password" name="password" placeholder="Password"> <br/>
             <button type="submit">SignIn</button>
         </form>
+        <a href="/registration">SignUp</a>
     </div>
     </body>
 </html>

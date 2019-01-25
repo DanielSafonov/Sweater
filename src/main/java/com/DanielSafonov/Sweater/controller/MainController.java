@@ -1,4 +1,4 @@
-package com.DanielSafonov.Sweater;
+package com.DanielSafonov.Sweater.controller;
 
 import java.util.Map;
 
@@ -11,10 +11,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.DanielSafonov.Sweater.domain.Message;
 import com.DanielSafonov.Sweater.repos.MessageRepo;
 
+//Главный контроллер
 @Controller //Класс-контроллер обрабатывает HTTP-запросы
-public class GreetingController {
+public class MainController {
     @Autowired //Автосвязывание
-    private MessageRepo messageRepo;
+    private MessageRepo messageRepo; //Репозиторий для работы с сообщениями
 
     @GetMapping("/") //Обработка GET запросов на корневой адрес вызовом метода greeting()
     public String greeting(@RequestParam(name="name", required=false, defaultValue="user") String name, Map<String, Object> model){
