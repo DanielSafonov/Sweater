@@ -2,7 +2,9 @@ package com.DanielSafonov.Sweater.controller;
 
 import java.util.Map;
 
+import com.DanielSafonov.Sweater.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,7 +20,10 @@ public class MainController {
     private MessageRepo messageRepo; //Репозиторий для работы с сообщениями
 
     @GetMapping("/") //Обработка GET запросов на корневой адрес вызовом метода greeting()
-    public String greeting(@RequestParam(name="name", required=false, defaultValue="user") String name, Map<String, Object> model){
+    public String greeting(
+            @RequestParam(name="name", required=false, defaultValue="user") String name,
+            Map<String, Object> model
+    ){
         //Аннотация описывает параметр запроса name (не обязателен, стандартное значение - World) (?name=Daniel)
         //Второй входной параметр метода - карта строка-объект - Model (модель)
 
@@ -28,7 +33,9 @@ public class MainController {
     }
 
     @GetMapping("/home") //Обработка GET запросов на /main
-    public String main(Map<String, Object> model){
+    public String main(
+            Map<String, Object> model
+    ){
         //Принимаем на вход только модель
 
         Iterable<Message> messages = messageRepo.findAll(); //Получение всех данные из таблицы
@@ -38,10 +45,15 @@ public class MainController {
     }
 
     @PostMapping("/home") //Обработка POST запроса на /main
-    public String addMessage(@RequestParam String text, @RequestParam String tag, Map<String, Object> model){
-        //Принимает на вход две строки и модель
+    public String addMessage(
+            @AuthenticationPrincipal User user,
+            @RequestParam String text,
+            @RequestParam String tag,
+            Map<String, Object> model
+    ){
+        //Принимает на вход профиль авторизированного пользователя, две строки и модель
 
-        Message message = new Message(text, tag); //Новое сообщение
+        Message message = new Message(text, tag, user); //Новое сообщение
         messageRepo.save(message); //Сохранить сообщение в БД
 
         Iterable<Message> messages = messageRepo.findAll(); //Получение всех данные из таблицы
@@ -51,7 +63,10 @@ public class MainController {
     }
 
     @PostMapping("filter") //Обработка POST запроса на /filter
-    public String filter(@RequestParam String filter, Map<String, Object> model){
+    public String filter(
+            @RequestParam String filter,
+            Map<String, Object> model
+    ){
         //Принимает на вход ключевое слово для фильтрации и модель
 
         Iterable<Message> messages;

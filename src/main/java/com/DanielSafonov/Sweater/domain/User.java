@@ -1,12 +1,16 @@
 package com.DanielSafonov.Sweater.domain;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.Set;
 
 //Хранит профили пользователей
 @Entity  //Класс-сущность базы данных (Может хранить строку из таблицы)
 @Table(name = "usr")
-public class User {
+public class User implements UserDetails {
     //Поля класса
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO) //Автоматическая генерация ID
@@ -67,5 +71,31 @@ public class User {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    //Реализация методов интерфейса UserDetails (большая часть - заглушки)
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return isActive();
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return getRoles();
     }
 }

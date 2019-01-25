@@ -1,6 +1,14 @@
 package com.DanielSafonov.Sweater.domain;
 
+import org.springframework.security.core.GrantedAuthority;
+
 //Перечисление с ролями пользователей
-public enum Role {
+public enum Role implements GrantedAuthority {
     USER;
+
+    //Реализация методов интерфейса GrantedAuthority
+    @Override
+    public String getAuthority() {
+        return name(); //Строковое представление элемента множества
+    }
 }
