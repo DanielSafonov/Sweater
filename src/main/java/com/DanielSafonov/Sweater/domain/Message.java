@@ -16,8 +16,8 @@ public class Message {
 
     //Мэппинг поля автора сообщения (связь двух таблиц)
     //Связь, при которой одному пользователю соответствует множество сообщений (связь между таблицами)
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "usr_id") //В БД создается поле usr_id для связи
+    @ManyToOne(fetch = FetchType.EAGER) //Жадная загрузка
+    @JoinColumn(name = "usr_id") //В таблице messages создается поле usr_id для связи
     private User author; //Автор сообщения
 
 
@@ -30,7 +30,7 @@ public class Message {
         this.author = author;
     }
 
-    //Метод для передачи имени автора в шаблонизатор
+    //Метод для получения имени автора
     public String getAuthorName(){
         return author != null ? author.getUsername() : "<none>";
     }
