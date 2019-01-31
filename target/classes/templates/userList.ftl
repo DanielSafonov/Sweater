@@ -16,7 +16,7 @@
                     <td>${user.username}</td>
                     <td>
                         <#list user.roles as role>
-                            ${role} <#sep>,
+                            ${role}<#sep>,
                         </#list>
                     </td>
                     <td><a href="/user/${user.id}">Edit ${user.username}</a</td>

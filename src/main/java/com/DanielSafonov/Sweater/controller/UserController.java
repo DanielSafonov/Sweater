@@ -4,6 +4,7 @@ import com.DanielSafonov.Sweater.domain.Role;
 import com.DanielSafonov.Sweater.domain.User;
 import com.DanielSafonov.Sweater.repos.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +14,7 @@ import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/user") //Общий мэппинг для всех методов класса
+@PreAuthorize("hasAuthority('ADMIN')") //Доступ к контроллеру только для пользователя с ролью ADMIN
 public class UserController {
     @Autowired
     private UserRepo userRepo; //Доступ к профилям пользователей
