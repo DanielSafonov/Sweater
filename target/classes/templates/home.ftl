@@ -20,9 +20,8 @@
 
     <div>
         <h2>Messages list:</h2>
-        <form method="post" action="filter">
-            <input type="hidden" name="_csrf" value="${_csrf.token}" />
-            <input type="text" name="filter" placeholder="Filter by tag">
+        <form method="get" action="home">
+            <input type="text" name="filter" value="${filter}" placeholder="Filter by tag">
             <button type="submit">Search</button>
         </form>
 
