@@ -75,6 +75,8 @@ public class MainController {
 
         Iterable<Message> messages = messageRepo.findAll(); //Получение всех данные из таблицы
         model.put("messages", messages); //Передача данных в модель
+        model.put("filter", ""); //Пустой фильтр
+
 
         return "home"; //Возвращает имя View (веб-страницы)
     }

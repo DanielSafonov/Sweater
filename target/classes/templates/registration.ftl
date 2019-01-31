@@ -3,6 +3,5 @@
 
 <@base.page>
     <h2>Registration page</h2>
-    ${message}
     <@login.login "/registration" "SignUp" />
 </@base.page>

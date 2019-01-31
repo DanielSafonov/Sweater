@@ -4,7 +4,7 @@ import org.springframework.security.core.GrantedAuthority;
 
 //Перечисление с ролями пользователей
 public enum Role implements GrantedAuthority {
-    USER;
+    USER, ADMIN;
 
     //Реализация методов интерфейса GrantedAuthority
     @Override

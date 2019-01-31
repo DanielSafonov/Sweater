@@ -3,5 +3,5 @@
 
 <@base.page>
     <h2>Login page</h2>
-    <@login.login "/login" "SignIn" />
+    <@login.login "/login" "SignIn" /> <a href="/registration">SignUp</a>
 </@base.page>
