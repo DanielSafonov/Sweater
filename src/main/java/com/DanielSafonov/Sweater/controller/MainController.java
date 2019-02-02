@@ -83,7 +83,7 @@ public class MainController {
         Message message = new Message(text, tag, user); //Новое сообщение
 
         //Если файл существует, добавляем его к сообщению
-        if(file != null){
+        if(file != null && !file.getOriginalFilename().isEmpty()){
             File uploadFolder = new File(uploadPath); //Объект директории загрузки
             //Создать директорию, если ее не сущесвует
             if(!uploadFolder.exists()){
