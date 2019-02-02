@@ -13,6 +13,7 @@ public class Message {
 
     private String text; //Текст сообщения
     private String tag; //Тэг сообщения
+    private String filename; //Имя файла
 
     //Мэппинг поля автора сообщения (связь двух таблиц)
     //Связь, при которой одному пользователю соответствует множество сообщений (связь между таблицами)
@@ -45,6 +46,9 @@ public class Message {
     public void setTag(String tag) {
         this.tag = tag;
     }
+    public void setFilename(String filename) {
+        this.filename = filename;
+    }
     public void setAuthor(User author) { this.author = author; }
 
     //Геттеры
@@ -56,6 +60,9 @@ public class Message {
     }
     public String getTag() {
         return tag;
+    }
+    public String getFilename() {
+        return filename;
     }
     public User getAuthor() { return author; }
 }

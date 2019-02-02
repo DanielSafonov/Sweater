@@ -9,9 +9,10 @@
 
     <div>
         <h2>Add message</h2>
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
             <input type="text" name="text" placeholder="Message">
             <input type="text" name="tag" placeholder="Tag">
+            <input type="file" name="file">
             <input type="hidden" name="_csrf" value="${_csrf.token}" />
             <button type="submit">Add</button>
         </form>
@@ -33,6 +34,11 @@
                ${message.text}
                <b>${message.tag}</b>
                <u>${message.authorName}</u>
+               <div>
+                   <#if message.filename??>
+                       <img src="/img/${message.filename}">
+                   </#if>
+               </div>
            </div>
            <#else> <!-- Если messages пустой -->
            No messages

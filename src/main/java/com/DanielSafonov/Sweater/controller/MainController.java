@@ -1,9 +1,13 @@
 package com.DanielSafonov.Sweater.controller;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Map;
+import java.util.UUID;
 
 import com.DanielSafonov.Sweater.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,12 +17,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.DanielSafonov.Sweater.domain.Message;
 import com.DanielSafonov.Sweater.repos.MessageRepo;
+import org.springframework.web.multipart.MultipartFile;
 
 //Главный контроллер
 @Controller //Класс-контроллер обрабатывает HTTP-запросы
 public class MainController {
     @Autowired //Автосвязывание
     private MessageRepo messageRepo; //Репозиторий для работы с сообщениями
+
+    //Получает путь из application.properties и вставляет его в переменную
+    @Value("${upload.path}")
+    private String uploadPath;
 
     @GetMapping("/") //Обработка GET запросов на корневой адрес вызовом метода greeting()
     public String greeting(
@@ -66,11 +75,29 @@ public class MainController {
             @AuthenticationPrincipal User user,
             @RequestParam String text,
             @RequestParam String tag,
+            @RequestParam("file") MultipartFile file,
             Map<String, Object> model
-    ){
-        //Принимает на вход профиль авторизированного пользователя, две строки и модель
+    ) throws IOException {
+        //Принимает на вход профиль авторизированного пользователя, две строки, файл и модель
 
         Message message = new Message(text, tag, user); //Новое сообщение
+
+        //Если файл существует, добавляем его к сообщению
+        if(file != null){
+            File uploadFolder = new File(uploadPath); //Объект директории загрузки
+            //Создать директорию, если ее не сущесвует
+            if(!uploadFolder.exists()){
+                uploadFolder.mkdir();
+            }
+            //Уникальный идентификатор файла
+            String uuidFile = UUID.randomUUID().toString();
+            String resultFilename = uuidFile + "." + file.getOriginalFilename();
+            //Загрузка файла
+            file.transferTo(new File(uploadFolder + "/" + resultFilename));
+            //Добавляем файл к сообщению
+            message.setFilename(resultFilename);
+        }
+
         messageRepo.save(message); //Сохранить сообщение в БД
 
         Iterable<Message> messages = messageRepo.findAll(); //Получение всех данные из таблицы
