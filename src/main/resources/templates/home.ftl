@@ -22,7 +22,7 @@
     <div>
         <h2>Messages list:</h2>
         <form method="get" action="home">
-            <input type="text" name="filter" value="${filter}" placeholder="Filter by tag">
+            <input type="text" name="filter" value="${filter?if_exists}" placeholder="Filter by tag">
             <button type="submit">Search</button>
         </form>
 
