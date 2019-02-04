@@ -78,10 +78,10 @@ public class MessageController {
         message.setTag(tag);
         message.setText(text);
 
-        //TODO: Удалить старый файл при загрузке нового
         //TODO: Если загружается тот же самый файл?
         //Загрузка и сохранение файла
         //Если файл существует, добавляем его к сообщению
+        //Если загружается новый файл, старый удаляется
         if(file != null && !file.getOriginalFilename().isEmpty()){
             File uploadFolder = new File(uploadPath); //Объект директории загрузки
             //Создать директорию, если ее не сущесвует
@@ -93,6 +93,13 @@ public class MessageController {
             String resultFilename =  uuidFile + "." + file.getOriginalFilename();
             //Загрузка файла
             file.transferTo(new File(uploadFolder + "/" + resultFilename));
+
+            //Удалить старый файл
+            File oldFile = new File(uploadPath + "/" + message.getFilename());
+            if(oldFile.exists()){
+                oldFile.delete();
+            }
+
             //Добавляем файл к сообщению
             message.setFilename(resultFilename);
         }

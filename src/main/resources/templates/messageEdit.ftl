@@ -9,8 +9,8 @@
         <label><b>Author:</b> <input type="text" name="author" value="${message.authorName}" /></label><br/>
         <label><b>Tag:</b> <input type="text" name="tag" value="${message.tag}" /></label><br/>
         <label><b>Message text:</b> <input type="text" name="text" value="${message.text}"></label><br/>
-        <label><b>File:</b> <input type="file" name="file" value="${message.filename?if_exists}"/></label><br/>
-        <p>Current filename: ${message.filePath?if_exists}</p>
+        <label><b>File:</b> <input type="file" name="file"/></label><br/>
+        <p><b>Current filename:</b> ${message.filePath?if_exists}</p>
         <button type="submit">Save</button>
     </form>
 </@base.page>
