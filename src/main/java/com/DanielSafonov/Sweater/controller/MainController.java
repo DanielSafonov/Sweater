@@ -30,16 +30,9 @@ public class MainController {
     private String uploadPath;
 
     @GetMapping("/") //Обработка GET запросов на корневой адрес вызовом метода greeting()
-    public String greeting(
-            @RequestParam(name="name", required=false, defaultValue="user") String name,
-            Map<String, Object> model
-    ){
-        //Аннотация описывает параметр запроса name (не обязателен, стандартное значение - World) (?name=Daniel)
-        //Второй входной параметр метода - карта строка-объект - Model (модель)
+    public String greeting(){
 
-        model.put("name", name); //Передача в модель параметра name
         return "greeting"; //Возвращает имя View (веб-страницы)
-
     }
 
     @GetMapping("/home") //Обработка GET запросов на /main

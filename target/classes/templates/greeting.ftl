@@ -4,7 +4,7 @@
 <!-- Вложенный код для шаблона -->
 <@base.page>
 <div>
-    Hello, ${name}! <br/>
+    Hello! <br/>
     <a href="/home">Go to main page</a>
 </div>
 </@base.page>
