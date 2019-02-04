@@ -21,6 +21,7 @@ import java.util.UUID;
 public class MessageController {
     @Autowired //Австосвязывание с репозиторием сообщений
     private MessageRepo messageRepo;
+
     @Autowired //Австосвязывание с репозиторием пользователей
     private UserRepo userRepo;
 
@@ -40,8 +41,13 @@ public class MessageController {
     @GetMapping("/delete/{message}") // message/delete/{messageID}
     //Удаление сообщения из списка
     public String messageListSave(@PathVariable Message message){
+        //Удалить файл
+        File file = new File(uploadPath + "/" + message.getFilename());
+        if(file.exists()){
+            file.delete();
+        }
+        //Удалить сообщение из БД
         messageRepo.deleteById(message.getId());
-        //TODO: Вместе с сообщением удалять и локальный файл!
         return "redirect:/message";
     }
 
