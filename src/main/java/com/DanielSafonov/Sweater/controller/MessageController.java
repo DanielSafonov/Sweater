@@ -74,7 +74,12 @@ public class MessageController {
             @RequestParam String text,
             @RequestParam("file") MultipartFile file
             ) throws IOException {
-        message.setAuthor(userRepo.findByUsername(author)); //TODO: Если такого пользователя не существует?
+
+        //Если заданного пользователя не сущетсувет, остается предыдущий
+        if(userRepo.findByUsername(author) != null){
+            message.setAuthor(userRepo.findByUsername(author));
+        }
+
         message.setTag(tag);
         message.setText(text);
 
