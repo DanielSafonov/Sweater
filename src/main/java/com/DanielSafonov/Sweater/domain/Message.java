@@ -36,10 +36,11 @@ public class Message {
         return author != null ? author.getUsername() : "<none>";
     }
 
+    //Метод для получения имени сообщения
+    public String getFilePath(){ return filename != null ? filename : "<none>";} //TODO: не совсем корректно работает
+
     //Сеттеры
-    public void setId(Long id) {
-        this.id = id;
-    }
+    public void setId(Long id) { this.id = id; }
     public void setText(String text) {
         this.text = text;
     }

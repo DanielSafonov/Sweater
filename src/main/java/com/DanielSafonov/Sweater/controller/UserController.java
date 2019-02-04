@@ -29,7 +29,7 @@ public class UserController {
         return "userList";
      }
 
-     @GetMapping("{user}") //user/{userID}
+     @GetMapping("{user}") // user/{userID}
      //Получение и правка данных конктреного пользователя
      public String userEditForm(
              @PathVariable User user,
