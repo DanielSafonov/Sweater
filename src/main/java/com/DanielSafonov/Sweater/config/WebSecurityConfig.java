@@ -23,7 +23,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                    .antMatchers("/", "/registration").permitAll()
+                .antMatchers("/", "/registration", "/static/**").permitAll()
                     .anyRequest().authenticated()
                 .and()
                     .formLogin()
@@ -33,7 +33,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .logout()
                     .permitAll();
         //Включить авторизацию
-        //К корневому адресу (/) и форме решистрации (/registration) разрешен полный доступ
+        //К корневому адресу (/), форме регистрации (/registration) и директории статики разрешен полный доступ
         //Для всех остальных запросов требуется авторизация
         //Включаем login
         //По адресу /login разрешаем доступ для всех

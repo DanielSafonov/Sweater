@@ -19,12 +19,12 @@ public class MvcConfig implements WebMvcConfigurer {
     }
 
     //Каждое обращение к серверу по пути img перенаправляет все запросы по другому пути (протокол file)
+    //Вся иерархия директории static раздается, файлы ищутся в дереве проекта /static
     @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry){
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/img/**")
                 .addResourceLocations("file://" + uploadPath + "/");
+        registry.addResourceHandler("/static/**")
+                .addResourceLocations("classpath:/static/");
     }
-
-
-
 }
