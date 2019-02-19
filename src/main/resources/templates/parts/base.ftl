@@ -17,7 +17,7 @@
 </head>
 <body class="d-flex flex-column h-100">
     <@navbar.navbar/>
-    <main role="main" class="container">
+    <main role="main" class="container flex-shrink-0">
         <#nested> <!-- Контент страницы - вложенный код -->
     </main>
 
