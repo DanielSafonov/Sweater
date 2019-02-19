@@ -5,8 +5,6 @@
     <h1>Home page</h1>
 
     <@logout.logout/> <!-- Кнопка logout -->
-    <a href="/user">Users admin</a>
-    <a href="/message">Messages admin</a>
 
     <div>
         <h2>Add message</h2>

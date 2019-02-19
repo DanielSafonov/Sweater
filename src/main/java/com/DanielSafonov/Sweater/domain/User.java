@@ -98,4 +98,9 @@ public class User implements UserDetails {
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return getRoles();
     }
+
+    //Проверка на администратора
+    public boolean isAdmin(){
+        return roles.contains(Role.ADMIN);
+    }
 }
