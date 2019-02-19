@@ -52,7 +52,6 @@ public class UserController {
         user.setUsername(username);
         user.setPassword(password);
 
-        //TODO: разрбрать код
         //Множество возможных ролей
         Set<String> roles = Arrays.stream(Role.values())
                 .map(Role::name)
@@ -60,6 +59,7 @@ public class UserController {
 
         user.getRoles().clear();
 
+        //Форма возвращает перечисление ролей, обходим их
         for(String key: formData.keySet()){
             if(roles.contains(key)){
                 user.getRoles().add(Role.valueOf(key));

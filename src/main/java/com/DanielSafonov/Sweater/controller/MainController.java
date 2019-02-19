@@ -19,6 +19,8 @@ import com.DanielSafonov.Sweater.domain.Message;
 import com.DanielSafonov.Sweater.repos.MessageRepo;
 import org.springframework.web.multipart.MultipartFile;
 
+//TODO: выдает FORBIDDEN при срздании нового сообщения с вложением не админом
+
 //Главный контроллер
 @Controller //Класс-контроллер обрабатывает HTTP-запросы
 public class MainController {
