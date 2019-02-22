@@ -1,6 +1,6 @@
 <#import "layouts/default.ftl" as layout> <!-- Подключение базового шаблона -->
 
-<@layout.page>
+<@layout.page currentPage="messages">
     <h2>Message edit</h2>
     <form action="/message" method="post" enctype="multipart/form-data">
         <input type="hidden" name="_csrf" value="${_csrf.token}" />

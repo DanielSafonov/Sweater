@@ -37,7 +37,7 @@ public class MainController {
         return "greeting"; //Возвращает имя View (веб-страницы)
     }
 
-    @GetMapping("/home") //Обработка GET запросов на /main
+    @GetMapping("/main") //Обработка GET запросов на /main
     public String main(
             @RequestParam(required = false, defaultValue = "") String filter,
             Model model
@@ -62,10 +62,10 @@ public class MainController {
         model.addAttribute("filter", filter);
 
 
-        return "home"; //Возвращает имя View (веб-страницы)
+        return "main"; //Возвращает имя View (веб-страницы)
     }
 
-    @PostMapping("/home") //Обработка POST запроса на /main
+    @PostMapping("/main") //Обработка POST запроса на /main
     public String addMessage(
             @AuthenticationPrincipal User user,
             @RequestParam String text,
@@ -100,6 +100,6 @@ public class MainController {
         model.put("filter", ""); //Пустой фильтр
 
 
-        return "home"; //Возвращает имя View (веб-страницы)
+        return "main"; //Возвращает имя View (веб-страницы)
     }
 }

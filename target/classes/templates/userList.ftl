@@ -1,6 +1,6 @@
 <#import "layouts/default.ftl" as layout> <!-- Подключение базового шаблона -->
 
-<@layout.page>
+<@layout.page currentPage="users">
     <h2>List of users</h2>
     <table>
         <thead>

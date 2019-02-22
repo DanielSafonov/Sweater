@@ -1,6 +1,6 @@
 <#import "layouts/default.ftl" as base>
 
-<@base.page>
+<@base.page currentPage="main">
     <!-- Блок создания нового сообщения -->
     <form method="post" enctype="multipart/form-data">
         <div class="row">
@@ -35,7 +35,7 @@
 
     <!-- Список сообщений -->
     <div class="card-columns">
-        <#list messages as message>
+        <#list messages?sort_by("id")?reverse as message>
             <div class="card">
                 <#if message.filename??>
                     <img src="/img/${message.filename}" class="card-img-top">
@@ -49,8 +49,6 @@
                     <b>Tag: </b> ${message.tag}
                     <b class="float-right">${message.authorName}</b>
                 </div>
-
-
             </div>
         <#else>
             No message

@@ -3,9 +3,9 @@
 <#import "../parts/navbar.ftl" as navbar>
 <#import "../parts/footer.ftl" as footer>
 
-<#macro page>
-<!DOCTYPE html>
-    <html lang="ru">
+<#macro page currentPage>
+    <!DOCTYPE html>
+    <html lang="ru" class="h-100">
     <head>
         <title>Sweater</title>
         <meta charset="UTF-8" content="text/html" http-equiv="Content-Type"/>
@@ -17,7 +17,10 @@
         <link rel="stylesheet" href="/static/style.css">
     </head>
     <body class="d-flex flex-column h-100">
-        <@navbar.navbar/> <!-- Панель навигации -->
+        
+        <header>
+            <@navbar.navbar currentPage/> <!-- Панель навигации -->
+        </header>
 
         <main role="main" class="container flex-shrink-0">
             <#nested> <!-- Место для вставки контента страницы -->
