@@ -1,7 +1,7 @@
-<#import "parts/base.ftl" as base> <!-- Подключение базового шаблона -->
-<#import "parts/login.ftl" as login><!-- Подключение шаблона формы логина -->
+<#import "layouts/default.ftl" as layout> <!-- Подключение базового шаблона -->
+<#import "parts/auth.ftl" as auth><!-- Подключение шаблона формы логина -->
 
-<@base.page>
-    <h2>Login page</h2>
-    <@login.login "/login" "SignIn" />
-</@base.page>
+<@layout.page>
+    <h2>Вход в аккаунт</h2>
+    <@auth.login/>
+</@layout.page>

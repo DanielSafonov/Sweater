@@ -1,6 +1,6 @@
-<#import "parts/base.ftl" as base>
+<#import "layouts/default.ftl" as layout> <!-- Подключение базового шаблона -->
 
-<@base.page>
+<@layout.page>
     <h2>List of users</h2>
     <table>
         <thead>
@@ -26,4 +26,4 @@
             </#list>
         </tbody>
     </table>
-</@base.page>
+</@layout.page>

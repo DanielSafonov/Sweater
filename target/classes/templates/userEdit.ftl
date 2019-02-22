@@ -1,6 +1,6 @@
-<#import "parts/base.ftl" as base>
+<#import "layouts/default.ftl" as layout> <!-- Подключение базового шаблона -->
 
-<@base.page>
+<@layout.page>
     <h2>User edit</h2>
 
     <form action="/user" method="post">
@@ -18,4 +18,4 @@
         <label><b>Password:</b> <input type="password" value="${user.password}" name="password"/></label><br/>
         <button type="submit">Save</button>
     </form>
-</@base.page>
+</@layout.page>

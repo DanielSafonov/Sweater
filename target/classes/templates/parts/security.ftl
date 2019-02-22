@@ -1,4 +1,4 @@
-<!-- Файл для получения данных сессии -->
+<!-- Фрагмент для получения данных сессии -->
 
 <!-- Определение переменной сессии и приведение ее к bool-->
 <#assign
@@ -6,17 +6,17 @@
 >
 
 <#if known>
-    <!-- Сессия существует (вход осуществлен) -->
-    <!-- Получение профиля пользователя -->
+    <!-- Сессия существует (вход осуществлен) - получение профиля пользователя -->
     <#assign
         user = Session.SPRING_SECURITY_CONTEXT.authentication.principal
         name = user.getUsername()
         isAdmin = user.isAdmin()
     >
+
     <#else >
-    <!-- Сессия не существует -->
-    <#assign
-        name = "unknown"
-        isAdmin = false
-    >
+        <!-- Сессия не существует -->
+        <#assign
+            name = "unknown"
+            isAdmin = false
+        >
 </#if>

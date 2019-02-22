@@ -1,5 +1,7 @@
-<!-- Панель навигации -->
+<!-- Фрагмент с панелью навигации -->
+
 <#include "security.ftl">
+<#import "auth.ftl" as auth>
 
 <#macro navbar>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
@@ -9,20 +11,18 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
+
             <li class="nav-item">
-                <a class="nav-link" href="/">Home</a>
+                <a class="nav-link" href="/">Главная</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/home">Messages</a>
+                <a class="nav-link" href="/home">Лента</a>
             </li>
 
             <!-- Доступные только админу элементы меню -->
             <#if isAdmin>
                 <li class="nav-item">
-                    <a class="nav-link" href="/user">[A] Users</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/message">[A] Messages</a>
+                    <a class="nav-link" href="/admin">Администрирование</a>
                 </li>
             </#if>
 
@@ -31,9 +31,11 @@
         <!-- Имя пользователя или ссылка на вход -->
         <div class="navbar-text">
             <#if name != "unknown">
-                <b>${name}</b>
+                <!-- Имя пользователя и кнопка logout -->
+                <span><b class="mr-3">${name}</b> <@auth.logout/></span>
                 <#else>
-                    <a href="login">Login</a>
+                    <!-- Ссылка на вход в аккаунт -->
+                    <a href="/login">Login</a>
             </#if>
         </div>
 

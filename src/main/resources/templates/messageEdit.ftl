@@ -1,6 +1,6 @@
-<#import "parts/base.ftl" as base>
+<#import "layouts/default.ftl" as layout> <!-- Подключение базового шаблона -->
 
-<@base.page>
+<@layout.page>
     <h2>Message edit</h2>
     <form action="/message" method="post" enctype="multipart/form-data">
         <input type="hidden" name="_csrf" value="${_csrf.token}" />
@@ -13,4 +13,4 @@
         <p><b>Current filename:</b> ${message.filePath?if_exists}</p>
         <button type="submit">Save</button>
     </form>
-</@base.page>
+</@layout.page>
