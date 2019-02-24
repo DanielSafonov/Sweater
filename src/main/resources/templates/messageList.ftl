@@ -3,10 +3,9 @@
 <@layout.page currentPage="messages">
     <h2>Список сообщений</h2>
 
-
     <div class="table-responsive mt-2">
         <table class="table table-bordered table-hover table-sm">
-            <thead class="thead-light">
+            <thead class="thead-dark">
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Author</th>

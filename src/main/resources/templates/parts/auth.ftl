@@ -1,4 +1,4 @@
-<!-- Фрагмент с формой логина, регистрации и выхода -->
+<!-- Фрагмент с формой логина, регистрации -->
 
     <!-- Фрагмент с формой логина -->
 <#macro login>
@@ -29,12 +29,4 @@
             </form>
         </div>
     </div>
-</#macro>
-
-    <!-- Фрагмент с формой выхода -->
-<#macro logout>
-    <form action="/logout" class="form-inline my-2 my-lg-0" method="post">
-        <input type="hidden" name="_csrf" value="${_csrf.token}" /> <!-- CSRF-токен -->
-        <button class="btn btn-sm btn-secondary my-2 my-sm-0" type="submit">Выход</button>
-    </form>
 </#macro>

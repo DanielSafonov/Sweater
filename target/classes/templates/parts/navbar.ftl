@@ -1,7 +1,6 @@
 <!-- Фрагмент с панелью навигации (параметр - текущая страница)-->
 
 <#include "security.ftl">
-<#import "auth.ftl" as auth>
 
 <#macro navbar currentPage>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
@@ -48,17 +47,33 @@
             </#if>
         </ul>
 
-        <!-- Имя пользователя и кнопка выхода или ссылка на вход -->
-        <#if name != "unknown">
-            <!-- Имя пользователя и кнопка logout -->
-            <div class="navbar-text mr-3"><b>${name} </b></div>
-            <@auth.logout />
-            <#else>
-                <!-- Ссылка на вход в аккаунт -->
-                <div class="navbar-text mr-3">
-                    <b><a href="/login">Login</a></b>
-                </div>
-        </#if>
+        <!-- Меню пользователя -->
+    <#if name != "unknown">
+        <!-- Авторизован -->
+        <div class="dropdown">
+            <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="userMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <b>${name} </b>
+            </button>
+
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userMenu">
+
+                <button class="dropdown-item" type="button">Профиль</button>
+
+                <form action="/logout" class="form-inline my-2 my-lg-0" method="post">
+                    <input type="hidden" name="_csrf" value="${_csrf.token}" /> <!-- CSRF-токен -->
+                    <button class="dropdown-item" type="submit">Выход</button>
+                </form>
+
+            </div>
+        </div>
+        <#else>
+            <!-- Не авторизован -->
+            <div class="navbar-text mr-3">
+                <b><a href="/login">Login</a></b>
+            </div>
+    </#if>
+
+
     </div>
 </nav>
 </#macro>

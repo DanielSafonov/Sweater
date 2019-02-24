@@ -2,3 +2,9 @@
 .footer {
     background-color: #f5f5f5;
 }
+
+.card-img-top {
+    width: 100%;
+    padding: 1em;
+    flex-shrink: 0;
+}
