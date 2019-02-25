@@ -49,7 +49,7 @@ public class ProfileController {
 
         userRepo.save(user); //Сохранение изменений
 
-        return "profile";
+        return "redirect:/profile";
     }
 
 }
