@@ -21,6 +21,13 @@
 <#macro registration>
     <div class="row text-center">
         <div class="col-md-4">
+            <!-- Сообщение системы -->
+            <#if message?exists>
+                <div class="alert alert-danger" role="alert">
+                    <p class="mb-0">${message}</p>
+                </div>
+            </#if>
+
             <form action="/registration" method="post">
                 <input type="hidden" name="_csrf" value="${_csrf.token}" /> <!-- CSRF-токен -->
                 <input type="text" name="username" class="form-control mt-1" placeholder="Логин" required autofocus>

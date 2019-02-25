@@ -8,12 +8,12 @@
             <thead class="thead-dark">
             <tr>
                 <th scope="col">ID</th>
-                <th scope="col">Author</th>
-                <th scope="col">Tag</th>
-                <th scope="col">Message</th>
-                <th scope="col">Image Link</th>
-                <th scope="col">Edit</th>
-                <th scope="col">Delete</th>
+                <th scope="col">Автор</th>
+                <th scope="col">Тэг</th>
+                <th scope="col">Сообщение</th>
+                <th scope="col">Изображение</th>
+                <th scope="col">Изменить</th>
+                <th scope="col">Удалить</th>
             </tr>
             </thead>
             <tbody>
@@ -23,7 +23,7 @@
                     <td>${message.authorName}</td>
                     <td>${message.tag}</td>
                     <td>${message.text}</td>
-                    <td>${message.getFilePath()}</td>
+                    <td><a href="/img/${message.filePath?if_exists}" target="_blank">${message.filePath?if_exists?substring(message.filePath?index_of(".")+1)}</a></td>
                     <td><a href="/message/${message.id}">Edit</a></td>
                     <td><a href="/message/delete/${message.id}">Delete</a></td>
                     </tr>

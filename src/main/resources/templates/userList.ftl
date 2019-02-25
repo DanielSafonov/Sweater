@@ -8,9 +8,9 @@
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Role</th>
-                    <th scope="col">Edit</th>
+                    <th scope="col">Логин</th>
+                    <th scope="col">Права</th>
+                    <th scope="col">Изменить</th>
                 </tr>
             </thead>
             <tbody>
@@ -23,7 +23,7 @@
                                 ${role}<#sep>,
                             </#list>
                         </td>
-                        <td><a href="/user/${user.id}">Edit ${user.username}</a</td>
+                        <td><a href="/user/${user.id}">Edit</a</td>
                     </tr>
                         <#else>
                             <tr></tr>

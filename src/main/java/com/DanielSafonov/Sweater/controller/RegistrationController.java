@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 
 //Контроллер регистрации
 @Controller //Класс-контроллер обрабатывает HTTP-запросы
@@ -32,7 +31,7 @@ public class RegistrationController {
         //Проверка username
         if(userFromDb != null){
             //Username занят
-            model.put("message", "User exists! Registration failed!"); //Передача строки в модель
+            model.put("message", "Пользователь с таким username уже существует!"); //Передача строки в модель
             return "registration"; //Возврат на страницу регистрациии
         }
 

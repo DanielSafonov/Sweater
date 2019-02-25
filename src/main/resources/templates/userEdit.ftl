@@ -28,7 +28,7 @@
 
                 <div class="form-group">
                     <label for="password" class="font-weight-bold">Пароль</label>
-                    <input type="text" class="form-control" id="password" value="${user.password}" name="password"/>
+                    <input type="password" class="form-control" id="password" value="${user.password}" name="password"/>
                 </div>
 
                 <button class="btn btn-primary mt-2" type="submit">Сохранить</button>

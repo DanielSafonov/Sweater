@@ -30,6 +30,7 @@
                         <input type="file" accept="image/*" class="custom-file-input" name="file" id="customFile">
                         <label class="custom-file-label" for="customFile">${message.filePath?if_exists?substring(message.filePath?index_of(".")+1)}</label>
                     </div>
+                    <img src="/img/${message.filePath?if_exists}" class="img-fluid img-thumbnail mt-1" alt="Прикрепленное к посту изображение">
                 </div>
 
                 <button class="btn btn-primary mt-2" type="submit">Сохранить</button>
