@@ -24,8 +24,8 @@
                     <td>${message.tag}</td>
                     <td>${message.text}</td>
                     <td><a href="/img/${message.filePath?if_exists}" target="_blank">${message.filePath?if_exists?substring(message.filePath?index_of(".")+1)}</a></td>
-                    <td><a href="/message/${message.id}">Edit</a></td>
-                    <td><a href="/message/delete/${message.id}">Delete</a></td>
+                    <td><a class="btn btn-secondary btn-sm btn-block" href="/message/${message.id}">Изменить</a></td>
+                    <td><a class="btn btn-secondary btn-sm btn-block" href="/message/delete/${message.id}">Удалить</a></td>
                     </tr>
                 <#else>
                     <tr></tr>

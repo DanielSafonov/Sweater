@@ -30,8 +30,8 @@
                         <td>${user.email}</td>
                         <td>${user.firstName}</td>
                         <td>${user.lastName}</td>
-                        <td><a href="/user/${user.id}">Edit</a</td>
-                        <td><a href="/user/delete/${user.id}">Delete</a</td>
+                        <td><a class="btn btn-secondary btn-sm btn-block" href="/user/${user.id}">Изменить</a></td>
+                        <td><a class="btn btn-secondary btn-sm btn-block" href="/user/delete/${user.id}">Удалить</a></td>
                     </tr>
                         <#else>
                             <tr></tr>
