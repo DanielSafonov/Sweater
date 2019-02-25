@@ -20,22 +20,28 @@ public class RegistrationController {
 
     @GetMapping("/registration") //Обработка GET запросов на адрес /registration вызовом метода registration()
     public String registration(Model model){
-        return "registration";  //Возвращает имя View (веб-страницы)
+        return "registration"; //Возвращает имя View (веб-страницы)
     }
 
     @PostMapping("/registration") //Обработка POST запроса на /registration
     public String addUser(User user, Map<String, Object> model){
-        //Поиск такого username в базе (username уже занят)
-        User userFromDb = userRepo.findByUsername(user.getUsername());
-
-        //Проверка username
+        //Проверки на существование пользователя с такими данными
+        User userFromDb = userRepo.findByUsername(user.getUsername()); //Поиск такого username в базе
         if(userFromDb != null){
             //Username занят
             model.put("message", "Пользователь с таким username уже существует!"); //Передача строки в модель
             return "registration"; //Возврат на страницу регистрациии
         }
 
-        //Username не занят
+        userFromDb = userRepo.findByEmail(user.getUsername());
+
+        if(userFromDb != null){
+            //Email занят
+            model.put("message", "Пользователь с таким email уже существует!"); //Передача строки в модель
+            return "registration"; //Возврат на страницу регистрациии
+        }
+
+        //Username и email не заняты
         user.setActive(true); //Активация пользователя
         HashSet<Role> roles = new HashSet<Role>(); //Множество ролей пользовотеля
         roles.add(Role.USER); //Добавление роли "Пользователь"

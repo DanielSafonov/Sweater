@@ -22,7 +22,7 @@
     <div class="row text-center">
         <div class="col-md-4">
             <!-- Сообщение системы -->
-            <#if message?exists>
+            <#if message??>
                 <div class="alert alert-danger" role="alert">
                     <p class="mb-0">${message}</p>
                 </div>
@@ -31,7 +31,10 @@
             <form action="/registration" method="post">
                 <input type="hidden" name="_csrf" value="${_csrf.token}" /> <!-- CSRF-токен -->
                 <input type="text" name="username" class="form-control mt-1" placeholder="Логин" required autofocus>
-                <input type="password" name="password" class="form-control mt-1" placeholder="Пароль" required>
+                <input type="text" name="password" class="form-control mt-1" placeholder="Пароль" required>
+                <input type="text" name="firstName" class="form-control mt-1" placeholder="Имя" required>
+                <input type="text" name="lastName" class="form-control mt-1" placeholder="Фамилия" required>
+                <input type="email" name="email" class="form-control mt-1" placeholder="Email" required>
                 <button class="btn btn-lg btn-primary btn-block mt-2" type="submit">Регистрация</button>
             </form>
         </div>

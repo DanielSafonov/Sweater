@@ -10,8 +10,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 
-import javax.sql.DataSource;
-
 @Configuration //Файл конфигурации Spring Security
 @EnableWebSecurity //Включить и сконфигурировать Web Security
 @EnableGlobalMethodSecurity(prePostEnabled =  true) //Включить ограниченный доступ к методам (контроллерам)

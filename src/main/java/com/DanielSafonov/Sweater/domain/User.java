@@ -19,6 +19,9 @@ public class User implements UserDetails {
     private String username; //Логин
     private String password; //Пароль
     private boolean active; //Признак активности
+    private String firstName; //Имя
+    private String lastName; //Фамилия
+    private String email; //Email
 
     //Автоматическая генерация дополнительной таблицы для enum
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER) //Загрузка "жадным способом" (легкие данные)
@@ -47,10 +50,15 @@ public class User implements UserDetails {
         return active;
     }
 
-    public Set<Role> getRoles() {
-        return roles;
-    }
+    public String getFirstName() { return firstName; }
 
+    public String getLastName() { return lastName; }
+
+    public String getName() { return  firstName + " " + lastName; }
+
+    public String getEmail() { return email; }
+
+    public Set<Role> getRoles() { return roles; }
 
     //Сеттеры
     public void setId(Long id) {
@@ -67,6 +75,18 @@ public class User implements UserDetails {
 
     public void setActive(boolean active) {
         this.active = active;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public void setRoles(Set<Role> roles) {
