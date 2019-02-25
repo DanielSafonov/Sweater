@@ -57,7 +57,7 @@
 
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userMenu">
 
-                <button class="dropdown-item" type="button">Профиль</button>
+                <a class="dropdown-item" href="/profile">Профиль</a>
 
                 <form action="/logout" class="form-inline my-2 my-lg-0" method="post">
                     <input type="hidden" name="_csrf" value="${_csrf.token}" /> <!-- CSRF-токен -->

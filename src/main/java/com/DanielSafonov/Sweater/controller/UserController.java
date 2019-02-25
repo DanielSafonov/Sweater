@@ -53,12 +53,18 @@ public class UserController {
     public String userEditSave(
             @RequestParam String username,
             @RequestParam String password,
+            @RequestParam String email,
+            @RequestParam String lastName,
+            @RequestParam String firstName,
             @RequestParam("userID") User user,
             @RequestParam Map<String, String> formData
     ){
         //Правка данных пользователя
         user.setUsername(username);
         user.setPassword(password);
+        user.setEmail(email);
+        user.setFirstName(firstName);
+        user.setLastName(lastName);
 
         //Множество возможных ролей
         Set<String> roles = Arrays.stream(Role.values())
