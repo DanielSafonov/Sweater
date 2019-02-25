@@ -10,7 +10,11 @@
                     <th scope="col">ID</th>
                     <th scope="col">Логин</th>
                     <th scope="col">Права</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Имя</th>
+                    <th scope="col">Фамилия</th>
                     <th scope="col">Изменить</th>
+                    <th scope="col">Удалить</th>
                 </tr>
             </thead>
             <tbody>
@@ -23,7 +27,11 @@
                                 ${role}<#sep>,
                             </#list>
                         </td>
+                        <td>${user.email}</td>
+                        <td>${user.firstName}</td>
+                        <td>${user.lastName}</td>
                         <td><a href="/user/${user.id}">Edit</a</td>
+                        <td><a href="/user/delete/${user.id}">Delete</a</td>
                     </tr>
                         <#else>
                             <tr></tr>

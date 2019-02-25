@@ -27,6 +27,21 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="email" class="font-weight-bold">Email</label>
+                    <input type="email" class="form-control" id="email" value="${user.email}" name="email">
+                </div>
+
+                <div class="form-group">
+                    <label for="firstName" class="font-weight-bold">Имя</label>
+                    <input type="text" class="form-control" id="firstName" value="${user.firstName}" name="firstName">
+                </div>
+
+                <div class="form-group">
+                    <label for="lastName" class="font-weight-bold">Фамилия</label>
+                    <input type="text" class="form-control" id="lastName" value="${user.lastName}" name="lastName">
+                </div>
+
+                <div class="form-group">
                     <label for="password" class="font-weight-bold">Пароль</label>
                     <input type="password" class="form-control" id="password" value="${user.password}" name="password"/>
                 </div>

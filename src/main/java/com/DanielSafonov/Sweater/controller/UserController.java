@@ -40,6 +40,14 @@ public class UserController {
         return "userEdit";
      }
 
+     @GetMapping("/delete/{user}") // user/delete/{userID}
+     //Удаление пользователя
+     public String userDelete(@PathVariable User user){
+         //Удалить пользователя из БД
+         userRepo.deleteById(user.getId());
+         return "redirect:/user";
+     }
+
     @PostMapping
     //Сохранение внесенных в профиль пользователя изменений
     public String userEditSave(
