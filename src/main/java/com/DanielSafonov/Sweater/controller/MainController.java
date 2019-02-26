@@ -99,7 +99,6 @@ public class MainController {
         model.put("messages", messages); //Передача данных в модель
         model.put("filter", ""); //Пустой фильтр
 
-
         return "main"; //Возвращает имя View (веб-страницы)
     }
 }

@@ -19,8 +19,9 @@ public class RegistrationController {
     private UserRepo userRepo; //Репозиторий для работы с профилями пользователей
 
     @GetMapping("/registration") //Обработка GET запросов на адрес /registration вызовом метода registration()
-    public String registration(Model model){
-        return "registration"; //Возвращает имя View (веб-страницы)
+    public String registration(){
+        //Возвращает имя View (веб-страницы)
+        return "registration";
     }
 
     @PostMapping("/registration") //Обработка POST запроса на /registration
